@@ -1,0 +1,79 @@
+<div class="container-fluid w-100 text-center p-4">
+    <h1>Base [<%= @base %>] Number Chart</h1>
+</div>
+<div class="row container-fluid text-center">
+    <div class="col-md-3 table-sm">
+        <table class="table table-bordered table-hover">
+            <thead class="thead-inverse">
+                <tr>
+                    <th>Decimal # (Base 10)</th>
+                    <th>Converted # (Base <%= @base %>)</th>
+                    
+                </tr>
+            </thead>
+            
+            <% (1..50).to_a.each do |number| %>
+                <tr>
+                    <td><%= number %></td>
+                    <td><%= number_to_base(number, @base) %></td>
+                </tr>
+            <% end %>
+            
+        </table>
+    </div>
+    <div class="col-md-3 table-sm">
+        <table class="table table-bordered table-hover">
+            <thead class="thead-inverse">
+                <tr>
+                    <th>Decimal # (Base 10)</th>
+                    <th>Converted # (Base <%= @base %>)</th>
+                    
+                </tr>
+            </thead>
+            
+            <% (51..100).to_a.each do |number| %>
+                <tr>
+                    <td><%= number %></td>
+                    <td><%= number_to_base(number, @base) %></td>
+                </tr>
+            <% end %>
+            
+        </table>
+    </div>
+    <div class="col-md-3 table-sm">
+        <table class="table table-bordered table-hover">
+            <thead class="thead-inverse">
+                <tr>
+                    <th>Decimal # (Base 10)</th>
+                    <th>Converted # (Base <%= @base %>)</th>
+                    
+                </tr>
+            </thead>
+            <% (101..150).to_a.each do |number| %>
+                <tr>
+                    <td><%= number %></td>
+                    <td><%= number_to_base(number, @base) %></td>
+                </tr>
+            <% end %>
+            
+        </table>
+    </div>
+    <div class="col-md-3 table-sm">
+        <table class="table table-bordered table-hover">
+            <thead class="thead-inverse">
+                <tr>
+                    <th>Decimal # (Base 10)</th>
+                    <th>Converted # (Base <%= @base %>)</th>
+                    
+                </tr>
+            </thead>
+            <% (151..200).to_a.each do |number| %>
+                <tr>
+                    <td><%= number %></td>
+                    <td><%= number_to_base(number, @base) %></td>
+                </tr>
+            <% end %>
+            
+        </table>
+    </div>
+</div>
