@@ -1,11 +1,20 @@
-<div class="container-fluid w-100 text-center p-4">
+<div class="container-fluid w-100 text-center py-4">
     <h1>Number Converter 3000</h1>
 </div>
 
-<div class="container-fluid bg-primary rounded w-50 p-3">
-<% if @number.present? %>
+<div class="container-fluid w-100 text-center p-2">
+    <p>
+        <%= pluralize(@past_conversions.count, 'conversion') %>
+    </p>
+</div>
 
-  <p>In base <%=@base%>: <%= number_to_base(@number, @base) %></p>
+<div class="container-fluid bg-primary rounded w-50 p-3">
+<% if @number_conversion.valid? %>
+  <p>In base <%=@number_conversion.base%>: <%= number_to_base(@number_conversion.number, @number_conversion.base) %></p>
+<% else %>
+  <% @number_conversion.erros.full_messages.each do |message| %>
+    <p><%= error.full_message %></p>
+  <% end %>
 <% end %>
 
 <%= form_with(local: true, model: @conversion) do |f| %>
@@ -33,11 +42,11 @@
             <th>Answer</th>
         </tr>
     </thead>
-    <% @conversions.each do |conversion| %>
+    <% @past_conversions.each do |conversion| %>
     <tr>
-        <td><%= conversion.input_number %></td>
+        <td><%= conversion.number %></td>
         <td><%= conversion.base %></td>
-        <td><%= number_to_base(conversion.input_number, conversion.base) %></td>
+        <td><%= number_to_base(conversion.number, conversion.base) %></td>
     </tr>
     <% end %>
 </table>

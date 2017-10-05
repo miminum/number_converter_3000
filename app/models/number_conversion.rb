@@ -1,4 +1,7 @@
 class NumberConversion < ApplicationRecord
+    validates :base, numericality: { integer: true, greater_than: 1, less_than: 39 }
+    validates :number, numericality: { integer: true, greater_than_or_equal_to: 0 }
+    
     def result
         number_to_base(self.number, self.base)
     end

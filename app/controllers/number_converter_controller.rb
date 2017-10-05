@@ -3,15 +3,15 @@ class NumberConverterController < ApplicationController
     safe_params = params.permit(:number, :base)
     # if we are submitting the fom
     if !params.empty?
-      @number = safe_params[:number].to_i
-      @base = safe_params[:base].to_i
-      conversion = Conversion.new(input_number: @number, base: @base)
+      number = safe_params[:number]
+      base = safe_params[:base]
+      @number_conversion = NumberConversion.new(number: number, base: base)
       # conversion.input_number = @number
       # conversion.base = @base
-      conversion.save
+      @number_conversion.save
     end
 
-    @conversions = Conversion.all.reverse
+    @past_conversions = NumberConversion.all.order(created_at: :desc)
   end
 
   def base
@@ -29,6 +29,6 @@ class NumberConverterController < ApplicationController
 
   private
   def conversion_params
-    params.require(:conversion).permit(:input_number, :base)
+    params.require(:conversion).permit(:number, :base)
   end
 end
