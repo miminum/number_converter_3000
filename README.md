@@ -21,18 +21,19 @@ Convert to base:
 - input_number
 - base
 
-## Challenge
+## Challenge 04/10/17
 
 ### Create a model NumberConversion and save in database for each conversion
 - input_number
 - base
 
-### Add a history list to NumberConverter#index
+#### Add a history list to NumberConverter#index
 
-### Add Bootstrap 4
+#### Add Bootstrap 4
 
-### Add /base/5
-### Add /base/9
-### Add /base/16
-### Add /base/:base -> params[:base]
+#### Add /base/5
+#### Add /base/9
+#### Add /base/16
+#### Add /base/:base -> params[:base]
 - Will display number 0-200 converted to that base
+-------------------------------------------------------------------------
